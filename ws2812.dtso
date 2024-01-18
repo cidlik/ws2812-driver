@@ -1,0 +1,22 @@
+// Enable the SPI interface
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2835";
+
+	fragment@0 {
+		target = <&spi>;
+		__overlay__ {
+			status = "okay";
+
+			cdk_ws2812_spi@0 {
+			reg = <0>;
+			compatible = "cidlik,ws2812_spi";
+			status = "okay";
+			spi-max-frequency = <10000000>;
+			};
+		};
+	};
+};
+
